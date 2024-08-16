@@ -1,39 +1,38 @@
-### Докеризированное приложение для объявлений
-  
-  DB: Postgres
-  API: FastAPI
+### Dockerized Advertisement Application
 
-  контейнеры: [db, web]  
-  credentials stored in .env
+- **Database**: Postgres
+- **API**: FastAPI
 
-### 1 Запускаем контейнеры
+- **Containers**: [db, web]  
+- **Credentials**: Stored in `.env`
+
+### 1. Starting the Containers
 
 docker-compose up --build -d
 
-### 2 Создание объявления
+### 2. Creating an Advertisement
 
 curl -X POST "http://localhost:8000/advertisements/" -H "Content-Type: application/json" -d '{
-  "title": "Продам велосипед",
-  "description": "Горный велосипед в отличном состоянии",
+  "title": "Selling a Bicycle",
+  "description": "Mountain bike in excellent condition",
   "price": 10000,
-  "author": "Иван Иванов"
+  "author": "Ivan Ivanov"
 }'
 
-### 3 Получение объявления по ID:
+### 3. Retrieving an Advertisement by ID
 
 curl -X GET "http://localhost:8000/advertisements/1"
 
-### 4 Изменение объявления по ID:
+### 4. Updating an Advertisement by ID
 
 curl -X PATCH "http://localhost:8000/advertisements/1" -H "Content-Type: application/json" -d '{
   "price": 9000
 }'
 
-### 5 Удаление объявления по ID:
+### 5. Deleting an Advertisement by ID
 
 curl -X DELETE "http://localhost:8000/advertisements/1"
 
-
-### 6 Просмотр документации:
+### 6. Viewing the Documentation
 
 http://localhost:8000/docs
